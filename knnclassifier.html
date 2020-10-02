@@ -15,13 +15,27 @@
     <img id='class0' src='/skye_default.png' width=255px />
   </div>
   <div>
-    <img id='test1' src='/test_set/notSkye_06.png' width=255px />
+    <img id='test1' src='/test_set/notSkye_05.png' width=255px />
   </div>
   <div id='result'></div>
 </body>
 <!-- Place your code in the script tag below. You can also use an external .js file -->
 <script>
+  // MOBILENET
+  const mobileNetApp = async function (str) {
+    const mobilenetModule = await mobilenet.load();
+    const img = document.getElementById(str)
+    const predictions = await mobilenetModule.classify(img)
+    console.log('Predictions: ', predictions)
+  }
 
+  mobileNetApp('class0')
+  mobileNetApp('test1')
+
+
+
+
+  // `                        KNNCLASSIFIER
   const imagesArray = (base, fileCount, fileType) => {
     const cache = [];
     let img;
