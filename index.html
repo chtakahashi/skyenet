@@ -1,29 +1,33 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="style.css">
   <!-- Load TensorFlow.js -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   <!-- Load MobileNet -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
   <!-- Load KNN Classifier -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  <!-- Load ImageArray file-->
+  <script src='javascript/imagesArray.js'></script>
+  <!-- MobileNet function wrapper -->
   <script src='javascript/mobilenet.js'></script>
+  <!-- trainKNN wrapper -->
   <script src="javascript/knnclassifier.js"></script>
 </head>
 
 <body>
-  <div>Did you give me a picture of Skye?</div>
-  <div>
-    <img id='class0' src='/skye_default.png' width=255px />
-  </div>
-  <input type="file"
-       id="avatar" name="avatar"
-       accept="image/png, image/jpg">
-  <div>
-    <img id='test1' src='/test_set/notSkye_05.png' width=255px />
-  </div>
-  <div id='result'></div>
-</body>
+  <div>Skyescanner</div>
+  <form method="post" enctype="multipart/form-data">
+    <div>
+      <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
+      <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+    </div>
+    <div class="preview">
+      <p>No files currently selected for upload</p>
+    </div>
+  </form>
+  </body>
 <!-- Place your code in the script tag below. You can also use an external .js file -->
 <script src="index.js"></script>
 
