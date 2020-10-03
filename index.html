@@ -7,6 +7,8 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
   <!-- Load KNN Classifier -->
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
+  <script src='javascript/mobilenet.js'></script>
+  <script src="javascript/knnclassifier.js"></script>
 </head>
 
 <body>
@@ -14,14 +16,16 @@
   <div>
     <img id='class0' src='/skye_default.png' width=255px />
   </div>
+  <input type="file"
+       id="avatar" name="avatar"
+       accept="image/png, image/jpg">
   <div>
     <img id='test1' src='/test_set/notSkye_05.png' width=255px />
   </div>
   <div id='result'></div>
 </body>
 <!-- Place your code in the script tag below. You can also use an external .js file -->
+<script src="index.js"></script>
 
-<script type="module" src='javascript/mobilenet.js'></script>
-<script type="module" src="javascript/knnclassifier.js"></script>
 
 </html>

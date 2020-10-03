@@ -14,14 +14,9 @@ const imagesArray = (base, fileCount, fileType) => {
   return images
 }
 
-
-
-const skyeImages = imagesArray('/skye_training/skye_00', 7, 'png')
-const catImages = imagesArray('/cats/cat_000', 13, 'jpg')
-
-const init = async function () {
+const classifier = knnClassifier.create();
+const trainKNN = async function (skyeImages, catImages) {
   // Create the classifier.
-  const classifier = knnClassifier.create();
 
   // Load mobilenet.
   const mobilenetModule = await mobilenet.load();
@@ -56,5 +51,3 @@ const init = async function () {
     resultObj.innerText = "This is an impostor!"
   }
 }
-
-init();
