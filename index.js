@@ -26,7 +26,6 @@ function updateImageDisplay() {
       const listItem = document.createElement('li');
       const para = document.createElement('p');
       if (validFileType(file)) {
-        para.textContent = `File name ${file.name}, file size ${returnFileSize(file.size)}.`;
         image = document.createElement('img');
         image.src = URL.createObjectURL(file);
 
@@ -40,6 +39,9 @@ function updateImageDisplay() {
       list.appendChild(listItem);
     }
     mobileNetApp(image)
+    const skyeImages = imagesArray('/skye_training/skye_00', 7, 'png')
+    const catImages = imagesArray('/cats/cat_000', 13, 'jpg')
+    myKNN(skyeImages, catImages, image)
   }
 }
 
@@ -72,7 +74,5 @@ function returnFileSize(number) {
 
 // mobileNetApp('class0')
 
-const skyeImages = imagesArray('/skye_training/skye_00', 7, 'png')
-const catImages = imagesArray('/cats/cat_000', 13, 'jpg')
 
 // trainKNN(skyeImages, catImages)
