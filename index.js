@@ -8,7 +8,7 @@ const preview = document.querySelector('.preview');
 
 input.addEventListener('change', updateImageDisplay);
 
-function updateImageDisplay() {
+async function updateImageDisplay() {
   while (preview.firstChild) {
     preview.removeChild(preview.firstChild);
   }
@@ -23,7 +23,7 @@ function updateImageDisplay() {
     preview.appendChild(list);
     let image;
     for (const file of curFiles) {
-      const listItem = document.createElement('li');
+      const listItem = document.createElement('div');
       const para = document.createElement('p');
       if (validFileType(file)) {
         image = document.createElement('img');
@@ -38,7 +38,22 @@ function updateImageDisplay() {
 
       list.appendChild(listItem);
     }
-    mobileNetApp(image)
+    const resultObj = document.getElementById('result')
+    resultObj.innerText = 'Predicting...'
+    const body = document.getElementById('body')
+    const mobileNetResults = document.getElementById('mobilenetResults')
+    body.appendChild(mobileNetResults)
+    const result = await mobileNetApp(image)
+    console.log(result)
+    while (mobileNetResults.firstChild) {
+      mobileNetResults.removeChild(mobileNetResults.firstChild)
+    }
+    result.map(x => {
+      const child = document.createElement('div')
+      child.innerText = `${x.className} with ${(x.probability * 100).toFixed(2)}% confidence`
+      mobileNetResults.appendChild(child)
+    })
+
     const skyeImages = imagesArray('/skye_training/skye_00', 7, 'png')
     const catImages = imagesArray('/cats/cat_000', 13, 'jpg')
     myKNN(skyeImages, catImages, image)

@@ -16,19 +16,20 @@
   <script src="javascript/knnclassifier.js"></script>
 </head>
 
-<body>
-  <div>SkyeNet</div>
+<body id='body'>
+  <h1>SkyeNet</h1>
   <form method="post" enctype="multipart/form-data">
     <div>
-      <label for="image_uploads">Choose images to upload (PNG, JPG)</label>
+      <div>Choose an image to upload (PNG, JPG)</div>
       <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
     </div>
+  </form>
     <div class="preview">
       <p>No files currently selected for upload</p>
     </div>
     <div id="result"></div>
-  </form>
-  </body>
+    <div id='mobilenetResults'></div>
+</body>
 <!-- Place your code in the script tag below. You can also use an external .js file -->
 <script src="index.js"></script>
 
