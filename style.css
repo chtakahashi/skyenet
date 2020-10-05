@@ -1,5 +1,9 @@
 body {
+  font-family: Helvetica;
   text-align: center;
+}
+div {
+  margin: 10px;
 }
 img {
   width: 512px;

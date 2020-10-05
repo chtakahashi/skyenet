@@ -31,10 +31,6 @@ const myKNN = async function (skyeImages, catImages, target) {
   const result1 = await classifier.predictClass(xlogits);
   console.log(result1)
   const resultObj = document.getElementById('result')
-  if (result1.label === 'Skye') {
-    resultObj.innerText = `We are ${result1.confidences[result1.label]*100}% confident this is a picture of Skye!`
-  } else {
-    resultObj.innerText = `We are ${result1.confidences[result1.label]*100}% confident this is an impostor!`
-  }
+  resultObj.innerText = result1.label.toUpperCase() + ` with ${result1.confidences[result1.label] * 100}% confidence`
   console.log("Prediction complete!")
 }
